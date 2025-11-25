@@ -65,4 +65,141 @@
 #### g.	Изучите сведения о версии ОС Cisco IOS на коммутаторе.
 #### Под управлением какой версии ОС Cisco IOS работает коммутатор?
 ![alt text](<версия IOS.png>)
+#### Как называется файл образа системы?
+![alt text](<Файл образа.png>)
 
+#### h.	Изучите свойства по умолчанию интерфейса FastEthernet, который используется компьютером PC-A.
+![alt text](<Интерфейc F0-6.png>)   
+#### Интерфейс включен или выключен?
+#### Включен.
+#### Что нужно сделать, чтобы включить интерфейс?
+#### Нужно выполнить команду no shutdown
+#### Какой MAC-адрес у интерфейса?
+#### ![alt text](<MAC F0-6.png>)   
+#### Какие настройки скорости и дуплекса заданы в интерфейсе?
+![alt text](<Скорость F0-6.png>)   
+
+#### i.	Изучите флеш-память
+#### Выпонить команду show flash либо dir flash
+![alt text](Flash-память.png)   
+
+## **Часть 2. Настройка базовых параметров сетевых устройств**
+### **Шаг 1. Настройте базовые параметры коммутатора.**
+#### a. В режиме глобальной конфигурации настроить базовые параметры конфигурации
+![alt text](<Базовые параметры.png>) 
+#### b.	Назначьте IP-адрес интерфейсу SVI на коммутаторе
+![alt text](<Ip адрес.png>)    
+
+#### c. Доступ через порт консоли также следует ограничить с помощью пароля.
+![alt text](<пароль для консоли.png>)    
+
+#### d.	Настройте каналы виртуального соединения для удаленного управления (vty), чтобы коммутатор разрешил доступ через Telnet.
+![alt text](<пароль на VTY.png>)   
+#### Для чего нужна команда login?
+#### Чтобы ввести пароль в действие.
+
+### Шаг 2. Настройте IP-адрес на компьютере PC-A.
+![alt text](<IP адрес ПК.png>)  
+
+## **Часть 3. Проверка сетевых подключений**
+### Шаг 1. Отобразите конфигурацию коммутатора
+#### a. Конфигурация приведена ниже.
+S1#show run  
+
+Building configuration...  
+
+
+Current configuration : 1270 bytes  
+
+!  
+version 15.0  
+no service timestamps log datetime msec  
+no service timestamps debug datetime msec  
+service password-encryption  
+!    
+hostname S1    
+!
+enable secret 5 $1$mERr$9cTjUIEqNGurQiFU.  ZeCi1  
+!  
+!  
+!  
+no ip domain-lookup  
+!  
+!  
+!  
+spanning-tree mode pvst  
+spanning-tree extend system-id  
+!  
+interface FastEthernet0/1  
+!
+interface FastEthernet0/2  
+!
+interface FastEthernet0/3  
+!
+interface FastEthernet0/4  
+!  
+interface FastEthernet0/5  
+!
+interface FastEthernet0/6  
+!  
+interface FastEthernet0/7  
+!  
+interface FastEthernet0/8  
+!  
+interface FastEthernet0/9  
+!  
+interface FastEthernet0/10  
+!  
+interface FastEthernet0/11  
+!  
+interface FastEthernet0/12  
+!  
+interface FastEthernet0/13  
+!  
+interface FastEthernet0/14  
+!  
+interface FastEthernet0/15  
+!  
+interface FastEthernet0/16  
+!  
+interface FastEthernet0/17  
+!  
+interface FastEthernet0/18  
+!  
+interface FastEthernet0/19  
+!  
+interface FastEthernet0/20  
+!  
+interface FastEthernet0/21  
+!
+interface FastEthernet0/22  
+!  
+interface FastEthernet0/23  
+!  
+interface FastEthernet0/24  
+!  
+interface GigabitEthernet0/1  
+!  
+interface GigabitEthernet0/2  
+!  
+interface Vlan1  
+ ip address 192.168.1.2 255.255.255.0  
+!  
+banner motd ^CUnauthorized access is strictly prohibited.^C  
+!  
+!  
+!  
+line con 0  
+ password 7 0822455D0A16  
+ login  
+!  
+line vty 0 4  
+ password 7 0822455D0A16  
+ login  
+line vty 5 15  
+ login  
+!  
+!  
+!  
+!  
+end  
